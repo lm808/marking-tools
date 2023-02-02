@@ -1,0 +1,133 @@
+[
+  {
+    "nodes" : [
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{15, 285}, {357, 32}}",
+        "class" : "Label",
+        "attributes" : {
+          "uuid" : "11419782-E91B-4A8C-81B2-D24B070AD669",
+          "flex" : "WB",
+          "frame" : "{{85, 224}, {150, 32}}",
+          "alignment" : "left",
+          "autocorrection_type" : "default",
+          "text" : "",
+          "text_color" : "RGBA(1.000000,0.000000,0.000000,1.000000)",
+          "font_name" : "<System>",
+          "spellchecking_type" : "default",
+          "class" : "Label",
+          "name" : "lblPrompt",
+          "font_size" : 16
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{235, 324}, {137, 57}}",
+        "class" : "Button",
+        "attributes" : {
+          "uuid" : "782923BC-DC9F-4E88-B0EC-18243C8F96B9",
+          "font_size" : 15,
+          "corner_radius" : 0,
+          "frame" : "{{120, 224}, {80, 32}}",
+          "border_color" : "RGBA(0.804245,0.804245,0.804245,1.000000)",
+          "border_width" : 1,
+          "title" : "Next",
+          "action" : "action_cmdEnter",
+          "font_bold" : false,
+          "class" : "Button",
+          "name" : "cmdEnter",
+          "flex" : "LB"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{15, 324}, {212, 57}}",
+        "class" : "TextField",
+        "attributes" : {
+          "uuid" : "401A5096-07E2-4BC6-AB50-2D5DCAB8A81E",
+          "flex" : "WB",
+          "corner_radius" : 0,
+          "secure" : false,
+          "frame" : "{{60, 224}, {200, 32}}",
+          "border_color" : "RGBA(0.214623,0.214623,0.214623,1.000000)",
+          "border_width" : 1,
+          "alignment" : "left",
+          "autocorrection_type" : "no",
+          "action" : "action_cmdEnter",
+          "font_name" : "<System>",
+          "spellchecking_type" : "no",
+          "class" : "TextField",
+          "name" : "tfInput",
+          "font_size" : 16
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{15, 12}, {357, 265}}",
+        "class" : "TextView",
+        "attributes" : {
+          "uuid" : "01FBCC06-2AA7-4EDE-8F30-54FA8A1AD641",
+          "font_size" : 16,
+          "corner_radius" : 0,
+          "frame" : "{{57, 108}, {200, 200}}",
+          "border_color" : "RGBA(0.811321,0.811321,0.811321,1.000000)",
+          "editable" : false,
+          "border_width" : 1,
+          "alignment" : "left",
+          "autocorrection_type" : "default",
+          "text" : "",
+          "font_name" : "<System>",
+          "spellchecking_type" : "default",
+          "class" : "TextView",
+          "name" : "tvMarks",
+          "flex" : "WB"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{15, 382}, {212, 17}}",
+        "class" : "Label",
+        "attributes" : {
+          "uuid" : "11419782-E91B-4A8C-81B2-D24B070AD669",
+          "font_size" : 12,
+          "frame" : "{{85, 224}, {150, 32}}",
+          "alignment" : "left",
+          "autocorrection_type" : "default",
+          "text_color" : "RGBA(1.000000,0.000000,0.000000,1.000000)",
+          "text" : "",
+          "font_name" : "<System>",
+          "spellchecking_type" : "default",
+          "class" : "Label",
+          "name" : "lblErr",
+          "flex" : "WB"
+        },
+        "selected" : false
+      }
+    ],
+    "frame" : "{{0, 0}, {388, 411}}",
+    "class" : "View",
+    "attributes" : {
+      "name" : "",
+      "enabled" : true,
+      "tint_color" : "RGBA(0.000000,0.478000,1.000000,1.000000)",
+      "border_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
+      "background_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
+      "flex" : ""
+    },
+    "selected" : false
+  }
+]
