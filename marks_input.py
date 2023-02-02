@@ -1,5 +1,5 @@
 # User Settings
-title = 'Fluid Loading Q2'
+title = 'Question_Title'
 marks = [3, 3, 3, 5, 6]
 
 # Commandline version
