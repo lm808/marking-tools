@@ -1,4 +1,4 @@
-import csv, re
+import csv, re, readline
 from math import floor
 
 class ExamQuestion:
@@ -64,6 +64,8 @@ class ExamQuestion:
         # allow exit
         if r.lower()=='q' or r.lower()=='exit' or r.lower()=='...':
             raise KeyboardInterrupt
+        if r.lower()=='back':
+            return r.lower()
         # remove all non-numeric values
         r = re.sub("[^0-9]", "", r)
         # empty?

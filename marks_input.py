@@ -1,5 +1,5 @@
 # User Settings
-title = 'Question_Title'
+title = 'Question Title'
 marks = [3, 3, 3, 5, 6]
 
 # Commandline version
