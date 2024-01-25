@@ -1,15 +1,24 @@
-import csv, re, readline
+import csv, re
 from math import floor
 
 class ExamQuestion:
     # property default values
     # none required.
 
-    def __init__(self, title, marks):
+    def __init__(self, title, marks, class_list=None, flip_list=False):
         self.title = title
         self.marks = marks
         self.fn = title.replace(' ', '_') + '.csv'
         self.cs = []
+        if class_list is None:
+            self.cl = None
+        else:
+            with open(class_list, 'r') as cltxt:
+                self.cl = cltxt.readlines()
+            self.cl = [line.replace('\n', '') for line in self.cl]
+            self.disp('Found ' + str(len(self.cl)) + ' CIDs.')
+        if flip_list:
+            self.cl.reverse()
     
     def __enter__(self):
         return self
@@ -26,6 +35,13 @@ class ExamQuestion:
         # redefine for gui
         r = input(msg)
         return r
+    
+    def getDefaultCID(self):
+        for cid in self.cl:
+            if not self.chkDupes(cid):
+                return cid
+        self.dispErr('All listed CIDs marked.')
+        return ''
     
     def cohortAnalytics(self):
         with open(self.fn, 'r', newline='') as csvfile:
@@ -51,7 +67,7 @@ class ExamQuestion:
                         return True
                 return False
         except FileNotFoundError:
-            self.disp('No CSV file yet.')
+            # self.disp('No CSV file yet.')
             return False
     
     def writeRecord(self):
@@ -80,7 +96,7 @@ class ExamQuestion:
             self.dispErr('Numeric input only.')
             return None
         
-    def validateCID(self, r):
+    def validateCID(self, r):        
         if self.chkStrInput(r) is None:
             return None
         else:

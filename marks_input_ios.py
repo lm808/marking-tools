@@ -1,15 +1,23 @@
 # User Settings
 title = 'Question Title'
 marks = [3, 3, 3, 5, 6]
+class_list = None
+flip_list = False
+
+# Commandline version
+from mi import ExamQuestion
+import sys
+
+print('\n' + title + '\n=========================')
 
 # Libraries
 import sys, mi, ui
 
 # Override some functions
 class ExamQuestion(mi.ExamQuestion):
-    def __init__(self, title, marks, view):
-        super().__init__(title, marks)
+    def __init__(self, title, marks, view, class_list=None, flip_list=False):
         self.view = view
+        super(ExamQuestion, self).__init__(title, marks, class_list, flip_list)
 
     def __enter__(self):
         return self
@@ -38,18 +46,23 @@ def refreshState():
         eq.prompt('🤷🏻 CID:')
         # eq.view['tfInput'].enabled = True
         # eq.view['tfInput'].border_color = '#363636'
+        if eq.cl is not None:
+            eq.view['tfInput'].text = eq.getDefaultCID();
+        else:
+            eq.view['tfInput'].text = ''
     elif len(eq.cs) < len(eq.marks)+1:
         i = len(eq.cs)-1
         mark = eq.marks[i]
         eq.prompt('📜 Part (' + chr(97+i) + ') [' + str(mark) + ' marks]:')
         # eq.view['tfInput'].enabled = True
         # eq.view['tfInput'].border_color = '#363636'
+        eq.view['tfInput'].text = ''
     else:
         eq.prompt('Ready to submit.')
         eq.view['cmdEnter'].title = 'Submit'
         # eq.view['tfInput'].enabled = False
         # eq.view['tfInput'].border_color = '#f6f6f6'
-    eq.view['tfInput'].text = ''
+        eq.view['tfInput'].text = ''
     eq.view['tfInput'].begin_editing()
 
 def updateTable(msg):
@@ -95,7 +108,7 @@ def action_cmdEnter(sender):
 
 # Build interface
 v = ui.load_view('marks_input_ios.pyui')
-eq = ExamQuestion(title, marks, v)
+eq = ExamQuestion(title, marks, v, class_list, flip_list)
 
 v.name = eq.title
 v['tfInput'].keyboard_type = ui.KEYBOARD_DECIMAL_PAD

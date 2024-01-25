@@ -1,19 +1,30 @@
 # User Settings
 title = 'Question Title'
 marks = [3, 3, 3, 5, 6]
+class_list = None
+flip_list = False
 
 # Commandline version
 from mi import ExamQuestion
 import sys
 
-eq = ExamQuestion(title, marks)
 print('\n' + title + '\n=========================')
+
+eq = ExamQuestion(title, marks, class_list, flip_list)
 
 while True:
     try:
         # get CID and make sure it is valid
-        msg = '\nCID: '
-        cid = eq.validateCID(eq.getInput(msg))
+        if eq.cl is not None:
+            dCID = eq.getDefaultCID();
+            msg = '\nCID <ENTER for default = ' + dCID + '>: '
+            cid = eq.getInput(msg)
+            if cid == '':
+                cid = dCID
+        else:
+            msg = '\nCID: '
+            cid = eq.getInput(msg)
+        cid = eq.validateCID(cid)
         while cid is None:
             cid = eq.validateCID(eq.getInput(msg))
         eq.cs = [cid]
