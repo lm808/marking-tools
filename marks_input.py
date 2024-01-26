@@ -6,7 +6,7 @@ flip_list = False
 
 # Commandline version
 from mi import ExamQuestion
-import sys
+import sys, readline
 
 print('\n' + title + '\n=========================')
 
