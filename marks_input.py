@@ -17,7 +17,7 @@ while True:
         # get CID and make sure it is valid
         if eq.cl is not None:
             dCID = eq.getDefaultCID();
-            msg = '\nCID <ENTER for default = ' + dCID + '>: '
+            msg = '\nCID (ENTER for default = ' + dCID + '): '
             cid = eq.getInput(msg)
             if cid == '':
                 cid = dCID
@@ -39,8 +39,10 @@ while True:
         eq.cs.append(sum(eq.cs[1:]))
         # screen output
         pc = eq.cs[-1] / sum(eq.marks) * 100
+        CRED = '\033[91m'
+        CEND = '\033[0m'
         print('-------------------------')
-        print('Total mark =', eq.cs[-1], '(' + '%.0f' % pc + '%)')
+        print('Total mark =', CRED, eq.cs[-1], CEND, '(' + '%.0f' % pc + '%)')
         print('-------------------------')
         eq.writeRecord()
         i, average_mark, average_pc = eq.cohortAnalytics()
